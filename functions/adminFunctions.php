@@ -11,6 +11,6 @@ function getAllUsers()
 {
   global $conn;
   $query = "SELECT * FROM users";
-  return $result = mysqli_query($conn, $query);
+  return mysqli_query($conn, $query);
 }
 

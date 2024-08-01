@@ -1,3 +1,8 @@
+<?php session_start();
+
+include "./middleware/kasirCheckLogin.php";
+?>
+
 <!doctype html>
 <html>
 
@@ -12,6 +17,7 @@
   <h1 class="text-3xl font-bold underline">
     Hello world!
   </h1>
+  <a href="./logout.php">Out</a>
   <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 
 </body>

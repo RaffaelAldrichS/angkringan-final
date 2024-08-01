@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+include "../middleware/adminMiddleware.php";
 include "./includes/header.php";
 
 $url = isset($_GET['target']) ? $_GET['target'] : 'dashboard';
