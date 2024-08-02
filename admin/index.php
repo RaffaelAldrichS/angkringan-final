@@ -10,6 +10,8 @@ if ($url == 'dashboard') {
   include "./modules/dashboard.php";
 } else if ($url == 'users') {
   include "./modules/users.php";
+} else if ($url == 'products') {
+  include "./modules/products.php";
 } else {
   echo 404;
 }

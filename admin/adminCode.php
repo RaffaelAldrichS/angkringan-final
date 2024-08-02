@@ -76,4 +76,44 @@ if (isset($_POST['addUser_btn'])) {
   } else {
     echo 500;
   }
+} else if (isset($_POST['addProduct_btn'])) {
+  $product_name = mysqli_real_escape_string($conn, $_POST['product_name']);
+  $price = mysqli_real_escape_string($conn, $_POST['price']);
+  $stock = mysqli_real_escape_string($conn, isset($_POST['stock']) ? $_POST['stock'] : '0');
+  $created_by = mysqli_real_escape_string($conn, $_POST['created_by']);
+  $is_approved = mysqli_real_escape_string($conn, $_POST['is_approved']);
+
+  $check_product = "SELECT * FROM products WHERE product_name = '$product_name'";
+  $check_product_run = mysqli_query($conn, $check_product);
+
+  if (mysqli_num_rows($check_product_run) > 0) {
+    header('Location: ../admin/index.php?target=products');
+    exit();
+  } else {
+    $insert_query = "INSERT INTO products (product_name, price, stock, created_by, is_approved) VALUES ('$product_name','$price','$stock','$created_by', '$is_approved')";
+    $insert_query_run = mysqli_query($conn, $insert_query);
+
+    if ($insert_query_run) {
+      header('Location: ../admin/index.php?target=products');
+    } else {
+      header('Location: ../admin/index.php?target=products');
+    }
+  }
+} else if (isset($_POST['change_active'])) {
+  $productId = $_POST['product_id'];
+  $isApproved = $_POST['is_approved'];
+
+  // Log input untuk memastikan data dikirim dengan benar
+  error_log("Product ID: $productId, isApproved: $isApproved");
+
+  // Update status persetujuan produk
+  $update_query = "UPDATE products SET is_approved = '$isApproved' WHERE id = '$productId'";
+  $update_query_run = mysqli_query($conn, $update_query);
+
+  // Gunakan mysqli_affected_rows untuk cek apakah ada perubahan yang dilakukan
+  if (mysqli_affected_rows($conn) > 0) {
+    echo 200;
+  } else {
+    echo 500;
+  }
 }

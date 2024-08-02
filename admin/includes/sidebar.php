@@ -52,7 +52,7 @@
                 <?= $_SESSION['auth_user']['username'] ?>
               </p>
               <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                Role: <?= $_SESSION['auth_user']['role_as'] == '0' ? 'Kasir' : 'Owner' ?>
+                Role: <?= $_SESSION['auth_user']['role_as'] == '0' ? 'Kasir' : 'Admin' ?>
               </p>
             </div>
             <ul class="py-1" role="none">
@@ -115,7 +115,7 @@
         </a>
       </li>
       <li>
-        <a href="#"
+        <a href="index.php?target=products"
           class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <svg
             class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"

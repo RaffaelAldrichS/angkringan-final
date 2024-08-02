@@ -13,4 +13,4 @@
 <body>
   <div class="antialiased bg-gray-50 dark:bg-gray-900">
     <?php include "./includes/sidebar.php" ?>
-    <main class="p-4 md:ml-64 h-auto pt-20">
+    <main class="p-4 md:ml-64 min-h-screen pt-20">
